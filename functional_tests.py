@@ -25,25 +25,27 @@ class NewVisitorTest(unittest.TestCase):
         header_text = self.browser.find_element_by_tag_name('h1').text
         self.assertIn('To-Do', header_text)
 
-        #Ей сразу же предлагается ввести элемент списка
+        #Текстовое поле по-прежнему приглашает ее добавить еще один елемент
+        #Она вводит"Сделать мушку из павлиных перьев" (Эдит очень методична)
         inputbox = self.browser.find_element_by_id('id_new_item')
-        self.assertEqual(
-            inputbox.get_attribute('placeholder'),
-            'Enter a to-do item'
-        )
-        inputbox.send_keys('Купить павлиньи перья')
-
-        #Когда она нажимает enter страница обновляется и теперь она содержит "1 Купить павлиньи перья"в качестве елемента списка
+        inputbox.send_keys('Сделать мушку из павлиньих перьев')
         inputbox.send_keys(Keys.ENTER)
         time.sleep(1)
 
+        #Страница снова обновляется и теперь показывает оба елемента ее списка
         table = self.browser.find_element_by_id('id_list_table')
         rows = table.find_elements_by_tag_name('tr')
-        self.assertTrue(
-            any(row.text == '1: Купить павлиньи перья' for row in rows),
-            "Новый елемент списка не появился в таблице"
-        )
-        self.fail('Закончить тест')
 
+        self.assertIn('1: Купить павлиньи перья', [row.text for row in rows])
+        self.assertIn(
+            '2: Сделать мушку из павлиньих перьев',
+            [row.text for row in rows]
+        )
+
+        #Эдит интересно запомнит ли сайт ее список Далее она видит что сайт
+        #сгенирировал для нее уникальный URL-адрес
+        #об этом выводится небольшой текст с пояснениями
+        self.fail('Закончить тест')
+        #Она посещает этот адрес и ее список по-прежнему там 
 if __name__ == '__main__':
     unittest.main(warnings='ignore')

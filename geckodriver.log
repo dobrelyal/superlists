@@ -165,3 +165,41 @@ JavaScript error: resource:///modules/SavantShieldStudy.jsm, line 171: TypeError
 1535805914454	Marionette	INFO	Listening on port 36271
 1535805914469	Marionette	WARN	TLS certificate errors will be ignored for this session
 *** UTM:SVC TimerManager:registerTimer called after profile-before-change notification. Ignoring timer registration for id: telemetry_modules_ping
+1536064283421	geckodriver	INFO	geckodriver 0.21.0
+1536064283454	geckodriver	INFO	Listening on 127.0.0.1:59927
+1536064284387	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.jIg6neMTfLqU"
+1536064289415	Marionette	INFO	Listening on port 37155
+1536064289630	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: resource:///modules/SavantShieldStudy.jsm, line 171: TypeError: this.addonListener is undefined
+*** UTM:SVC TimerManager:registerTimer called after profile-before-change notification. Ignoring timer registration for id: telemetry_modules_ping
+1536064624768	geckodriver	INFO	geckodriver 0.21.0
+1536064624776	geckodriver	INFO	Listening on 127.0.0.1:36823
+1536064625784	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.Mqi0AoWOFsKY"
+1536064630650	Marionette	INFO	Listening on port 41775
+1536064630779	Marionette	WARN	TLS certificate errors will be ignored for this session
+*** UTM:SVC TimerManager:registerTimer called after profile-before-change notification. Ignoring timer registration for id: telemetry_modules_ping
+1536139120703	geckodriver	INFO	geckodriver 0.21.0
+1536139120712	geckodriver	INFO	Listening on 127.0.0.1:39651
+1536139121715	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.MKT25waQzeR6"
+1536139128759	Marionette	INFO	Listening on port 34349
+1536139128835	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: resource:///modules/SavantShieldStudy.jsm, line 171: TypeError: this.addonListener is undefined
+*** UTM:SVC TimerManager:registerTimer called after profile-before-change notification. Ignoring timer registration for id: telemetry_modules_ping
+1536139694584	geckodriver	INFO	geckodriver 0.21.0
+1536139694591	geckodriver	INFO	Listening on 127.0.0.1:46415
+1536139695609	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.iZlqPYQUaiha"
+1536139700065	Marionette	INFO	Listening on port 40505
+1536139700179	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: resource:///modules/SavantShieldStudy.jsm, line 171: TypeError: this.addonListener is undefined
+*** UTM:SVC TimerManager:registerTimer called after profile-before-change notification. Ignoring timer registration for id: telemetry_modules_ping
+JavaScript error: resource://gre/modules/osfile/osfile_async_front.jsm, line 408: Error: OS.File has been shut down. Rejecting post to DirectoryIterator_prototype_close
+JavaScript error: resource://gre/modules/osfile/osfile_async_front.jsm, line 408: Error: OS.File has been shut down. Rejecting post to DirectoryIterator_prototype_close
+JavaScript error: resource://gre/modules/ProfileAge.jsm, line 174: Error: Unable to fetch oldest profile entry: Error: OS.File has been shut down. Rejecting request to DirectoryIterator_prototype_next
+JavaScript error: resource://gre/modules/ProfileAge.jsm, line 174: Error: Unable to fetch oldest profile entry: Error: OS.File has been shut down. Rejecting post to DirectoryIterator_prototype_next
+1536139899427	geckodriver	INFO	geckodriver 0.21.0
+1536139899438	geckodriver	INFO	Listening on 127.0.0.1:35029
+1536139900442	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.TDo4P3m7eAmz"
+1536139905201	Marionette	INFO	Listening on port 37825
+1536139905306	Marionette	WARN	TLS certificate errors will be ignored for this session
+[Parent 9965, Gecko_IOThread] WARNING: pipe error (78): Соединение разорвано другой стороной: file /build/firefox-oscv9o/firefox-61.0.1+build1/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
+*** UTM:SVC TimerManager:registerTimer called after profile-before-change notification. Ignoring timer registration for id: telemetry_modules_ping

@@ -6,12 +6,15 @@ def home_page(request):
     '''домашняя страница'''
     return render(request, 'home.html')
 
+def home_page1(request):
+    '''домашняя страница'''
+    return render(request, 'home.html')
+
 def new_list(request):
     '''новый список'''
     list_ = List.objects.create()
     Item.objects.create(text=request.POST['item_text'], list=list_)
     return redirect(f'/lists/{list_.id}/')
-
 
 def view_list(request, list_id):
     '''представление списка'''

@@ -51,6 +51,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'superlists.urls'
+#ROOT_URLCONF = 'lists.urls'
 
 TEMPLATES = [
     {

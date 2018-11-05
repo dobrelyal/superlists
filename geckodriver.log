@@ -8441,3 +8441,27 @@ JavaScript error: jar:file:///usr/lib/firefox/omni.ja!/components/nsUrlClassifie
 1541089716841	Marionette	DEBUG	Resetting recommended pref signon.autofillForms
 1541089716841	Marionette	DEBUG	Resetting recommended pref signon.rememberSignons
 1541089716842	Marionette	DEBUG	Remote service is inactive
+1541442323803	geckodriver	INFO	geckodriver 0.21.0
+1541442323836	geckodriver	INFO	Listening on 127.0.0.1:39763
+1541442324781	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.svYhbyqAZNPG"
+Running Firefox as root in a regular user's session is not supported.  ($HOME is /home/luda which is owned by luda.)
+1541442324965	geckodriver	INFO	geckodriver 0.21.0
+1541442324983	geckodriver	INFO	Listening on 127.0.0.1:48137
+1541442325982	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.Y4I9g4I0jLrg"
+Running Firefox as root in a regular user's session is not supported.  ($HOME is /home/luda which is owned by luda.)
+1541442326126	geckodriver	INFO	geckodriver 0.21.0
+1541442326136	geckodriver	INFO	Listening on 127.0.0.1:52239
+1541442327137	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.xIV3JPJytTmx"
+Running Firefox as root in a regular user's session is not supported.  ($HOME is /home/luda which is owned by luda.)
+1541442776650	geckodriver	INFO	geckodriver 0.21.0
+1541442776658	geckodriver	INFO	Listening on 127.0.0.1:36935
+1541442780549	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.ICm9NT5oOBrC"
+Running Firefox as root in a regular user's session is not supported.  ($HOME is /home/luda which is owned by luda.)
+1541442784881	geckodriver	INFO	geckodriver 0.21.0
+1541442784892	geckodriver	INFO	Listening on 127.0.0.1:47895
+1541442784906	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.h0SOHfH6b4Sp"
+Running Firefox as root in a regular user's session is not supported.  ($HOME is /home/luda which is owned by luda.)
+1541442785057	geckodriver	INFO	geckodriver 0.21.0
+1541442785064	geckodriver	INFO	Listening on 127.0.0.1:42679
+1541442786076	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.3R469L1hoqG1"
+Running Firefox as root in a regular user's session is not supported.  ($HOME is /home/luda which is owned by luda.)

@@ -1,0 +1,13 @@
+[Unit]
+Description=Gunicorn server for superlists.ottg.eu
+
+
+[Service]
+Restart=on-failure
+User=dobrelka
+WorkingDirectory=/home/dobrelka/sites/superlists.ottg.eu/source/
+ExecStart=/home/dobrelka/sites/superlists.ottg.eu/virtualenv/bin/gunicorn --bind unix:/tmp/superlists.ottg.eu.socket superlists.wsgi:application
+
+
+[Install]
+WantedBy=multi-user.target	

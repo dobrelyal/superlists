@@ -1,50 +1,13 @@
-import os
-from django.contrib.staticfiles.testing import StaticLiveServerTestCase
+from .base import FunctionalTest
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
-from selenium.common.exceptions import WebDriverException
-import time
-import unittest
-from unittest import skip
-
-MAX_WAIT = 10
-
-
-class FunctionalTest(StaticLiveServerTestCase):
-    '''функциональный тест'''
-
-    def setUp(self):
-        '''установка'''
-        self.browser = webdriver.Firefox()
-        staging_server = os.environ.get('STAGING_SERVER')
-        if staging_server:
-            self.live_server_url = 'http://' + staging_server
-
-    def tearDown(self):
-        '''демонтаж'''
-        self.browser.quit()
-
-    def wait_for_row_in_list_table(self, row_text):
-        '''ожидать строку в таблице списка'''
-        start_time = time.time()
-        while True:
-            try:
-                table = self.browser.find_element_by_id('id_list_table')
-                rows = table.find_elements_by_tag_name('tr')
-                self.assertIn(row_text, [row.text for row in rows])
-                return
-            except (AssertionError, WebDriverException ) as e:
-                if time.time() - start_time > MAX_WAIT:
-                    raise e
-                time.sleep(0.5)
-
 
 
 class NewVisitorTest(FunctionalTest):
     '''тест нового посетителя'''
 
     def test_can_start_a_list_for_one_user(self):
-        '''тест: можно начать список и получить его позже'''
+        '''тест: можно начать список для одного пользователя'''
         #Эдит слышала ро крутое новое приложение со списком
         #неотложных дел Она решает оценить его домашнюю страничку
         #страница снова обновляется и теперь показывает оба элимента ее списка
@@ -122,48 +85,3 @@ class NewVisitorTest(FunctionalTest):
         self.assertIn('Купить молоко', page_text)
 
         #Удовлетворенные они оба ложаться спать
-
-class LayoutAndStylingTest(FunctionalTest):
-    '''тест макета и стилевого оформления'''
-
-    def test_layout_and_styling(self):
-        '''тест макета и стилевого оформления'''
-        #Эдит открывает домашнюю страницу
-        self.browser.get(self.live_server_url)
-        self.browser.set_window_size(1024, 768)
-
-        #Она замечает что поле ввода аккуратно центрировано
-        inputbox = self.browser.find_element_by_id('id_new_item')
-        self.assertAlmostEqual(
-            inputbox.location['x'] + inputbox.size['width'] / 2,
-            512,
-            delta=10
-        )
-
-        #Она начинает новый список и видит что поле ввода там
-        #тоже оккуратно центрировано
-        inputbox.send_keys('testing')
-        inputbox.send_keys(Keys.ENTER)
-        self.wait_for_row_in_list_table('1: testing')
-        inputbox = self.browser.find_element_by_id('id_new_item')
-        self.assertAlmostEqual(
-            inputbox.location['x'] + inputbox.size['width'] / 2,
-            512,
-            delta=10
-        )
-
-class ItemValidationTest(FunctionalTest):
-    '''тест валидации элемента списка'''
-    
-    @skip
-    def test_cannot_add_empty_list_items(self):
-        '''тест нельзя добавлять пустые елементы списка'''
-        #Эдит открывает домашнюю страницу  и случайно пытается отправить
-        #пустой элемент списка .Она жмет ENTER на пустом поле ввода
-        #Домашняя страница обновляется и появляется сообщение об ошибке
-        #которое говорит что элементы списка не должны быть пустыми
-        #Она пробует снова,теперь с неким текстом для элемента и теперь это срабатывает
-        #Как ни странно, эдит решается отправить второй пустой элемент списка
-        #Она получает аналогичное предупреждение на странице списка
-        #И она может его исправить , заполнив поле неким текстом
-        self.fail('write me!')

@@ -5,12 +5,13 @@ from selenium.webdriver.common.keys import Keys
 from selenium.common.exceptions import WebDriverException
 import time
 import unittest
+from unittest import skip
 
 MAX_WAIT = 10
 
 
-class NewVisitorTest(StaticLiveServerTestCase):
-    '''тест нового посетителя'''
+class FunctionalTest(StaticLiveServerTestCase):
+    '''функциональный тест'''
 
     def setUp(self):
         '''установка'''
@@ -36,6 +37,11 @@ class NewVisitorTest(StaticLiveServerTestCase):
                 if time.time() - start_time > MAX_WAIT:
                     raise e
                 time.sleep(0.5)
+
+
+
+class NewVisitorTest(FunctionalTest):
+    '''тест нового посетителя'''
 
     def test_can_start_a_list_for_one_user(self):
         '''тест: можно начать список и получить его позже'''
@@ -117,6 +123,8 @@ class NewVisitorTest(StaticLiveServerTestCase):
 
         #Удовлетворенные они оба ложаться спать
 
+class LayoutAndStylingTest(FunctionalTest):
+    '''тест макета и стилевого оформления'''
 
     def test_layout_and_styling(self):
         '''тест макета и стилевого оформления'''
@@ -143,3 +151,19 @@ class NewVisitorTest(StaticLiveServerTestCase):
             512,
             delta=10
         )
+
+class ItemValidationTest(FunctionalTest):
+    '''тест валидации элемента списка'''
+    
+    @skip
+    def test_cannot_add_empty_list_items(self):
+        '''тест нельзя добавлять пустые елементы списка'''
+        #Эдит открывает домашнюю страницу  и случайно пытается отправить
+        #пустой элемент списка .Она жмет ENTER на пустом поле ввода
+        #Домашняя страница обновляется и появляется сообщение об ошибке
+        #которое говорит что элементы списка не должны быть пустыми
+        #Она пробует снова,теперь с неким текстом для элемента и теперь это срабатывает
+        #Как ни странно, эдит решается отправить второй пустой элемент списка
+        #Она получает аналогичное предупреждение на странице списка
+        #И она может его исправить , заполнив поле неким текстом
+        self.fail('write me!')

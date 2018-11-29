@@ -27,7 +27,7 @@ def _get_latest_source(source_folder):
     if exists(source_folder + '/.git'):
         run(f'cd {source_folder} && git fetch')
     else:
-        run(f'git clone {REPO_URL}{source_folder}')
+        run(f'git clone {REPO_URL} {source_folder}')
     current_commit = local("git log -n 1 --format=%H", capture=True)
     run(f'cd {source_folder} && git reset --hard {current_commit}')
 
@@ -60,7 +60,7 @@ def _update_static_files(source_folder):
     '''обновить статические файлы'''
     run(
         f'cd {source_folder}'
-        ' && ../virtualenv/bin/python manage.py collectstatic --noinput'
+        ' && ../virtualenv/bin/python manage.py collectstfabfile.py atic --noinput'
     )
 
 

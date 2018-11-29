@@ -1,7 +1,7 @@
 
 from selenium.webdriver.common.keys import Keys
 from .base import FunctionalTest
-
+from django .contrib.staticfiles.testing import StaticLiveServerTest
 
 class LayoutAndStylingTest(FunctionalTest):
     '''тест макета и стилевого оформления'''

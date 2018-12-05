@@ -1,15 +1,11 @@
 from django.core.exceptions import ValidationError
 from django.shortcuts import redirect, render
 from lists.models import Item, List
-#from django.http import HttpResponse
-# Create your views here.
+from lists.forms import ItemForm
+
 def home_page(request):
     '''домашняя страница'''
-    return render(request, 'home.html')
-
-def home_page1(request):
-    '''домашняя страница'''
-    return render(request, 'home.html')
+    return render(request, 'home.html', {'form': ItemForm()})
 
 def new_list(request):
     '''новый список'''
@@ -31,7 +27,7 @@ def view_list(request, list_id):
 
     if request.method == 'POST':
         try:
-            
+
             item = Item(text=request.POST['item_text'], list=list_)
             item.full_clean()
             item.save()

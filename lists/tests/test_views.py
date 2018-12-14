@@ -1,8 +1,11 @@
 from django.test import TestCase
 from lists.models import Item, List
 from django.utils.html import escape
-from lists.forms import ItemForm, EMPTY_ITEM_ERROR
-from unittest import skip
+from lists.forms import (
+    DUPLICATE_ITEM_ERROR, EMPTY_ITEM_ERROR,
+    ExistingListItemForm, ItemForm,
+)
+
 
 class HomePageTest(TestCase):
     '''тест домашней страницы'''
@@ -77,7 +80,7 @@ class ListViewTest(TestCase):
         '''тест отображения формы для элемента'''
         list_ = List.objects.create()
         response = self.client.get(f'/lists/{list_.id}/')
-        self.assertIsInstance(response.context['form'], ItemForm)
+        self.assertIsInstance(response.context['form'], ExistingListItemForm)
         self.assertContains(response, 'name="text"')
 
     def  test_displays_only_items_for_that_list(self):
@@ -143,14 +146,13 @@ class ListViewTest(TestCase):
     def test_for_invalid_input_passes_form_to_template(self):
         '''тест на недопустимый ввод форма передается в шаблон'''
         response = self.post_invalid_input()
-        self.assertIsInstance(response.context['form'], ItemForm)
+        self.assertIsInstance(response.context['form'], ExistingListItemForm)
 
     def test_for_invalid_input_shows_error_on_page(self):
         '''тест на недопустимый ввод на странице показывается ошибка'''
         response = self.post_invalid_input()
         self.assertContains(response, escape(EMPTY_ITEM_ERROR))
 
-    @skip
     def test_duplicate_item_validation_errors_end_up_on_lists_page(self):
         '''тест ошибки валидации повторяющегося элемента
             оканчиваются на странице списков'''
@@ -160,7 +162,7 @@ class ListViewTest(TestCase):
             f'/lists/{list1.id}/',
             data={'text': 'textey'}
         )
-        expected_error = escape("You've already got this in your list")
+        expected_error = escape(DUPLICATE_ITEM_ERROR)
         self.assertContains(response, expected_error)
         self.assertTemplateUsed(response, 'list.html')
         self.assertEqual(Item.objects.all().count(), 1)

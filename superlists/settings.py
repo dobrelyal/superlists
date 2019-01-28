@@ -150,6 +150,6 @@ LOGGING = {
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'dobrelyatest@gmail.com'
 #EMAIL_HOST_PASSWORD = os.environ.get('SECRET')
-EMAIL_HOST_PASSWORD = 'c5ru8fhD6pLZ'
+EMAIL_HOST_PASSWORD = 'c5ru8fhD6p'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
